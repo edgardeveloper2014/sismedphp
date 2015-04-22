@@ -12,13 +12,13 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Scrolling Nav - Start Bootstrap Template</title>
+    <title>Sismed</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<link href="css/scrolling-nav.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+   
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +41,7 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                   
+
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">Sismed</a>
             </div>
@@ -59,14 +59,14 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
                     <li>
                         <a class="page-scroll" href="AgregarPaciente.php">Agregar Paciente</a>
                     </li>
-                   
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    
+
 
     <!-- About Section -->
     <section id="about" class="about-section">
@@ -74,29 +74,30 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Ingresar un nuevo paciente</h1>
-                     <form action="PacienteAgregado.php" method="post">
+                    <form action="PacienteAgregado.php" method="post" id="frmpaciente" >
             <table class=" table table-condensed">
                 <tr>
-                    <td><b>Primer Nombre:</b></td>
-                    <td><input type="text" name="txtPnombre" /></td>
+                    <td><b>Primer Nombre</b></td>
+                    <td><input type="text" name="txtPnombre" id="txtPnombre" required="true" /></td>
+              
                 </tr>
                 <tr>
                     <td><b>Segundo Nombre:</b></td>
-                    <td><input type="text" name="txtSnombre" /></td>
+                    <td><input type="text" name="txtSnombre" id="txtSnombre" required="true" /></td>
                 </tr>
                 <tr>
                     <td><b>Primer Apellido:</b></td>
-                    <td><input type="text" name="txtPapellido"/></td>
+                    <td><input type="text" name="txtPapellido" id="txtPapellido" required="true" /></td>
                 </tr>
                 <tr>
                     <td><b>Segundo Apellido:</b></td>
-                    <td><input type="text" name="txtSapellido"/></td>
+                    <td><input type="text" name="txtSapellido" id="txtSapellido" required="true" /></td>
                 </tr>
                  <tr>
                     <td><b>Tipo de documento:</b></td>
-               
+
                     <td>
-                        <select name="Documento">
+                        <select name="Documento" id="Documento" required="true">
                             <option value="C.C">C.C</option>
                             <option value="T.I">T.I</option>
                         </select>
@@ -104,25 +105,25 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
                 </tr>
                 <tr>
                     <td><b>Documento:</b></td>
-                    <td><input type="text" name="txtDocumento"/></td>
-                   
+                    <td><input type="text" name="txtDocumento" id="txtDocumento"  required="true"/></td>
+
                 </tr>
                 <tr>
                     <td><b>Direccion:</b></td>
-                    <td><input type="text" name="txtDireccion"/></td>
+                    <td><input type="text" name="txtDireccion" id="txtDireccion" required="true"/></td>
                 </tr>
                 <tr>
                     <td><b>Telefono Fijo:</b></td>
-                    <td><input type="text" name="txtTelefonoFijo"/></td>
+                    <td><input type="text" name="txtTelefonoFijo" id="txtTelefonoFijo" required="true" /></td>
                 </tr>
                 <tr>
                     <td><b>Telefono Celular:</b></td>
-                    <td><input type="text" name="txtTelefonoCelular"/></td>
+                    <td><input type="text" name="txtTelefonoCelular" id="txtTelefonoCelular" required="true" /></td>
                 </tr>
                 <tr>
                     <td><b>Tipo de Sangre</b></td>
                     <td>
-                        <select name="TipoSangre">
+                        <select name="TipoSangre" id="TipoSangre" required="true">
                             <option value="O-">O-</option>
                             <option value="O+">O+</option>
                             <option value="A-">A-</option>
@@ -143,7 +144,7 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
                             $db->conectar();
                             $rs = $db->crearResultSet("select  eps_id,eps_nombre from eps");
                         ?>
-                            <select name="eps">
+                        <select name="eps" id="eps">
                             <?php
                             while ($arreglodatos = $rs->getFila()) {
                             ?>
@@ -159,25 +160,16 @@ include_once 'Modelos/NativasMySQL/MySQLConnection.php';
                         ?>
                     </td>
                 </tr>
-                   
+
             </table>
+ <input type="submit" value="Guardar datos"/>
                            </form>
-            <input type="submit" value="Guardar datos"/>
+
                 </div>
             </div>
         </div>
+        
     </section>
-
-   
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
-    <script src="js/scrolling-nav.js"></script>
 
 </body>
 
